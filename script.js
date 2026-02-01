@@ -121,6 +121,9 @@ if (lightbox && lightboxImage && lightboxClose) {
       } else {
         showImage(currentIndex + 1);
       }
+    } else {
+      // Treat a tap as "next" on mobile.
+      showImage(currentIndex + 1);
     }
   });
 }
