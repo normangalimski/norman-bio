@@ -655,6 +655,10 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  .nav-links a {
+    color: #0b0f16 !important;
+  }
+
   .cta-row {
     justify-content: center;
     margin-top: 128px;
