@@ -23,7 +23,7 @@ body {
 }
 
 .gallery-page {
-  background: #0b0f16;
+  background: radial-gradient(circle at 10% 20%, #141a2b 0%, #0b0f16 55%, #070a0f 100%);
 }
 
 .gallery-page .page-montage,
