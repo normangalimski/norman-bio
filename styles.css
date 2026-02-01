@@ -76,8 +76,9 @@ ul {
 }
 
 .page-montage {
-  position: fixed;
+  position: absolute;
   inset: 0;
+  height: 220vh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(8, minmax(70px, 1fr));
