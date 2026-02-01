@@ -620,6 +620,10 @@ main {
   .lightbox-nav.next {
     right: 12px;
   }
+
+  .lightbox-nav {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {

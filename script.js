@@ -81,19 +81,32 @@ if (lightbox && lightboxImage && lightboxClose) {
   let touchEndX = 0;
   let touchEndY = 0;
 
-  lightbox.addEventListener("touchstart", (event) => {
-    const touch = event.changedTouches[0];
-    touchStartX = touch.screenX;
-    touchStartY = touch.screenY;
-  });
+  lightbox.addEventListener(
+    "touchstart",
+    (event) => {
+      if (!lightbox.classList.contains("open")) return;
+      const touch = event.changedTouches[0];
+      touchStartX = touch.screenX;
+      touchStartY = touch.screenY;
+      touchEndX = touchStartX;
+      touchEndY = touchStartY;
+    },
+    { passive: true }
+  );
 
-  lightbox.addEventListener("touchmove", (event) => {
-    const touch = event.changedTouches[0];
-    touchEndX = touch.screenX;
-    touchEndY = touch.screenY;
-  });
+  lightbox.addEventListener(
+    "touchmove",
+    (event) => {
+      if (!lightbox.classList.contains("open")) return;
+      const touch = event.changedTouches[0];
+      touchEndX = touch.screenX;
+      touchEndY = touch.screenY;
+    },
+    { passive: true }
+  );
 
   lightbox.addEventListener("touchend", () => {
+    if (!lightbox.classList.contains("open")) return;
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
     if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
@@ -102,8 +115,7 @@ if (lightbox && lightboxImage && lightboxClose) {
       } else {
         showImage(currentIndex + 1);
       }
-    }
-    if (Math.abs(deltaY) > 60 && Math.abs(deltaY) > Math.abs(deltaX)) {
+    } else if (Math.abs(deltaY) > 60) {
       if (deltaY > 0) {
         showImage(currentIndex - 1);
       } else {
