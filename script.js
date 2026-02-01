@@ -80,6 +80,7 @@ if (lightbox && lightboxImage && lightboxClose) {
   let touchStartY = 0;
   let touchEndX = 0;
   let touchEndY = 0;
+  let touchOnControl = false;
 
   lightbox.addEventListener(
     "touchstart",
@@ -90,6 +91,7 @@ if (lightbox && lightboxImage && lightboxClose) {
       touchStartY = touch.screenY;
       touchEndX = touchStartX;
       touchEndY = touchStartY;
+      touchOnControl = Boolean(event.target.closest(".lightbox-nav, .lightbox-close"));
     },
     { passive: true }
   );
@@ -107,6 +109,7 @@ if (lightbox && lightboxImage && lightboxClose) {
 
   lightbox.addEventListener("touchend", () => {
     if (!lightbox.classList.contains("open")) return;
+    if (touchOnControl) return;
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
     if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
