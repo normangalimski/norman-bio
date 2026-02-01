@@ -558,6 +558,7 @@ main {
   height: auto;
   border-radius: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
 .lightbox-close {
@@ -590,6 +591,7 @@ main {
   height: 48px;
   border-radius: 999px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .lightbox-nav.prev {
