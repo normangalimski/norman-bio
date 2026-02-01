@@ -86,6 +86,13 @@ ul {
 }
 
 .hero-content {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero-copy {
   background: rgba(246, 242, 237, 0.8);
   padding: 20px 24px;
   border-radius: 20px;
