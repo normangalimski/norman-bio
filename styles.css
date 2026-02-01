@@ -675,7 +675,7 @@ main {
   }
 
   .cta-row .btn.primary {
-    padding: 7px 13px;
+    padding: 6px 12px !important;
   }
 
   .hero-panels {
