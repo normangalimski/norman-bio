@@ -252,14 +252,32 @@ ul {
 }
 
 .photo-card {
+  position: relative;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(15, 122, 107, 0.2), rgba(242, 159, 127, 0.3));
+  background-color: #b7b0a7;
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: flex-end;
   padding: 16px;
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
   overflow: hidden;
+  color: #f7f1ea;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.photo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 12, 10, 0.15), rgba(15, 12, 10, 0.65));
+  z-index: 0;
+}
+
+.photo-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .photo-card.tall {
@@ -272,6 +290,30 @@ ul {
 
 .photo-placeholder {
   font-weight: 600;
+}
+
+.photo-1 {
+  background-image: url("https://www.bpmcdn.com/f/files/northernview/import/2022-02/28123178_web1_220217-PRU-Taekwondo-40th-a_2.jpg");
+}
+
+.photo-2 {
+  background-image: url("https://www.bpmcdn.com/f/files/northernview/import/2022-01/27870820_web1_220127-PRU-HOC-Ralph-Saunders-a_2.jpg");
+}
+
+.photo-3 {
+  background-image: url("https://www.bpmcdn.com/f/files/northernview/import/2022-02/27939307_web1_220203-PRU-HOC-Michel-Gauthier-a_13.jpg");
+}
+
+.photo-4 {
+  background-image: url("https://www.bpmcdn.com/f/files/northernview/import/2021-11/27202712_web1_211125-PRU-HOC-David-Costa-a_1.jpg");
+}
+
+.photo-5 {
+  background-image: url("https://www.bpmcdn.com/f/files/northernview/import/2022-03/28241785_web1_220303-PRU-HOC-Renee-Morven-a_3.jpg");
+}
+
+.photo-6 {
+  background-image: url("https://www.bpmcdn.com/f/files/northernview/import/2022-04/28499441_web1_220407-PRU-Joanne-Ritchie-HOC-j_1.jpg");
 }
 
 .footer {
