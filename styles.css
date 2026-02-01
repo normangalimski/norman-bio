@@ -82,11 +82,15 @@ ul {
 }
 
 .hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(246, 242, 237, 0.35), rgba(246, 242, 237, 0.2) 40%, rgba(246, 242, 237, 0.55));
-  z-index: 0;
+  display: none;
+}
+
+.hero-content {
+  background: rgba(246, 242, 237, 0.8);
+  padding: 20px 24px;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(30, 28, 25, 0.18);
+  display: inline-block;
 }
 
 .page-montage {
