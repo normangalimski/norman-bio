@@ -87,7 +87,7 @@ const initHomeStream = async () => {
       const img = images[index];
       index = (index + 1) % images.length;
       const item = createStreamItem(img);
-      stream.appendChild(item);
+      stream.insertBefore(item, sentinel);
       observeReveal(item);
     }
     setTimeout(() => loading.classList.remove("is-visible"), 200);
@@ -103,7 +103,7 @@ const initHomeStream = async () => {
         }
       });
     },
-    { rootMargin: "300px" }
+    { root: stream, rootMargin: "0px 300px 0px 300px" }
   );
 
   sentinelObserver.observe(sentinel);

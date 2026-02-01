@@ -492,10 +492,14 @@ main {
 }
 
 .stream-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
   gap: 16px;
   margin-top: 28px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 6px;
+  scroll-snap-type: x proximity;
+  scrollbar-color: rgba(200, 163, 74, 0.6) transparent;
 }
 
 .stream-item {
@@ -504,7 +508,10 @@ main {
   background: rgba(19, 24, 38, 0.8);
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
-  aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
+  width: 240px;
+  height: 180px;
+  scroll-snap-align: start;
 }
 
 .stream-item img {
@@ -527,6 +534,7 @@ main {
 }
 
 .stream-sentinel {
+  flex: 0 0 1px;
   height: 1px;
 }
 
@@ -745,7 +753,12 @@ main {
   }
 
   .stream-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .stream-item {
+    width: 200px;
+    height: 150px;
   }
 
   .gallery-card:hover {
