@@ -674,6 +674,10 @@ main {
     background: rgba(200, 163, 74, 0.8);
   }
 
+  .cta-row .btn.primary {
+    padding: 7px 13px;
+  }
+
   .hero-panels {
     margin-top: 36px;
   }
