@@ -180,10 +180,10 @@ ul {
 }
 
 .btn.primary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.45);
   color: var(--ink);
-  border-color: var(--ink);
-  box-shadow: none;
+  border-color: rgba(30, 28, 25, 0.35);
+  box-shadow: 0 12px 30px rgba(30, 28, 25, 0.12);
 }
 
 .btn.ghost {
