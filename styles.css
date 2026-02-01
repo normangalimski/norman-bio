@@ -328,10 +328,12 @@ main {
   overflow: hidden;
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
-  background: #f7f2ec;
+  background: transparent;
   transform: translateY(6px) scale(0.98);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: zoom-in;
+  display: flex;
+  justify-content: center;
 }
 
 .gallery-card img {
@@ -674,5 +676,13 @@ main {
 
   .gallery-card:hover {
     transform: translateY(-2px) scale(1.01);
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery-card img {
+    height: 360px;
+    width: auto;
+    max-width: 100%;
   }
 }
