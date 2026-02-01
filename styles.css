@@ -173,6 +173,11 @@ ul {
   flex-wrap: wrap;
 }
 
+.hero-content .cta-row {
+  display: block;
+  margin-top: 18px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
