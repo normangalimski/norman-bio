@@ -347,11 +347,6 @@ main {
     max-width: 100%;
     margin: 0 auto;
   }
-
-  .gallery-card.portrait {
-    border: none;
-    box-shadow: none;
-  }
 }
 
 .gallery-card:hover {
