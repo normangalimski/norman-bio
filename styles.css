@@ -22,6 +22,15 @@ body {
   min-height: 100vh;
 }
 
+.gallery-page {
+  background: #f4f2ef;
+}
+
+.gallery-page .page-montage,
+.gallery-page .bg-orb {
+  display: none;
+}
+
 h1, h2, h3 {
   font-family: "Fraunces", serif;
   font-weight: 600;
