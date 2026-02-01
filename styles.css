@@ -63,35 +63,35 @@ ul {
 .hero {
   position: relative;
   padding: 48px 8vw 32px;
-  overflow: hidden;
   z-index: 1;
 }
 
-.hero-montage {
-  position: absolute;
+.page-montage {
+  position: fixed;
   inset: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, minmax(80px, 1fr));
+  grid-template-rows: repeat(8, minmax(70px, 1fr));
   gap: 16px;
   padding: 32px 8vw 40px;
-  opacity: 0.5;
+  opacity: 0.7;
   z-index: 0;
+  pointer-events: none;
 }
 
-.hero-montage::after {
+.page-montage::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(246, 242, 237, 0.85), rgba(246, 242, 237, 0.6) 40%, rgba(246, 242, 237, 0.95));
+  background: linear-gradient(180deg, rgba(246, 242, 237, 0.55), rgba(246, 242, 237, 0.35) 40%, rgba(246, 242, 237, 0.7));
   z-index: 1;
 }
 
-.hero-tile {
+.page-tile {
   border-radius: 24px;
   background-size: cover;
   background-position: center;
-  filter: saturate(0.9) contrast(1.05);
+  filter: saturate(1.02) contrast(1.05);
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.6);
   position: relative;
@@ -117,21 +117,45 @@ ul {
 }
 
 .tile-4 {
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 4;
   grid-row: 4 / span 3;
   background-image: url("assets/photo-4.jpg");
 }
 
 .tile-5 {
-  grid-column: 6 / span 3;
+  grid-column: 5 / span 4;
   grid-row: 3 / span 3;
   background-image: url("assets/photo-5.jpg");
 }
 
 .tile-6 {
   grid-column: 9 / span 4;
-  grid-row: 5 / span 2;
+  grid-row: 5 / span 3;
   background-image: url("assets/photo-6.jpg");
+}
+
+.tile-7 {
+  grid-column: 1 / span 5;
+  grid-row: 7 / span 2;
+  background-image: url("assets/photo-2.jpg");
+}
+
+.tile-8 {
+  grid-column: 6 / span 3;
+  grid-row: 7 / span 2;
+  background-image: url("assets/photo-3.jpg");
+}
+
+.tile-9 {
+  grid-column: 9 / span 2;
+  grid-row: 7 / span 2;
+  background-image: url("assets/photo-4.jpg");
+}
+
+.tile-10 {
+  grid-column: 11 / span 2;
+  grid-row: 6 / span 3;
+  background-image: url("assets/photo-1.jpg");
 }
 
 .nav {
@@ -247,6 +271,11 @@ ul {
 .panel-body {
   font-size: 16px;
   line-height: 1.5;
+}
+
+main {
+  position: relative;
+  z-index: 1;
 }
 
 .section {
@@ -405,10 +434,10 @@ ul {
 }
 
 @media (max-width: 720px) {
-  .hero-montage {
+  .page-montage {
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, minmax(70px, 1fr));
-    opacity: 0.35;
+    grid-template-rows: repeat(10, minmax(60px, 1fr));
+    opacity: 0.55;
   }
 
   .tile-1 {
@@ -437,6 +466,22 @@ ul {
   }
 
   .tile-6 {
+    grid-column: 1 / span 6;
+    grid-row: 7 / span 2;
+  }
+
+  .tile-7 {
+    grid-column: 1 / span 3;
+    grid-row: 9 / span 2;
+  }
+
+  .tile-8 {
+    grid-column: 4 / span 3;
+    grid-row: 9 / span 2;
+  }
+
+  .tile-9,
+  .tile-10 {
     display: none;
   }
 
