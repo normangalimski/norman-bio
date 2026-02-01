@@ -538,6 +538,101 @@ main {
   height: 1px;
 }
 
+.video-feed {
+  margin-top: 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+}
+
+.video-feed-track {
+  display: flex;
+  gap: 18px;
+}
+
+.video-card {
+  flex: 0 0 auto;
+  width: 280px;
+  background: rgba(19, 24, 38, 0.9);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #0b0f16;
+  overflow: hidden;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-actions {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+}
+
+.video-actions button,
+.video-actions a {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid var(--stroke);
+  background: rgba(8, 12, 20, 0.8);
+  color: var(--accent-2);
+  cursor: pointer;
+}
+
+.video-actions button:focus-visible,
+.video-actions a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.video-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #05070b;
+}
+
+.video-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.video-fallback {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 10px 12px;
+}
+
 .lightbox-trigger {
   border: none;
   padding: 0;
@@ -759,6 +854,10 @@ main {
   .stream-item {
     width: 200px;
     height: 150px;
+  }
+
+  .video-card {
+    width: 220px;
   }
 
   .gallery-card:hover {

@@ -146,6 +146,136 @@ const initGallery = async () => {
   initLightbox(images);
 };
 
+const VIDEO_URLS = [
+  "https://youtu.be/tDYPlCaw3UA",
+  "https://youtu.be/M1DI1FtiJ7s",
+  "https://youtu.be/Khf5WjajAI4",
+  "https://youtu.be/ESdYYD26aYk",
+  "https://youtu.be/ESdYYD26aYk",
+  "https://youtu.be/LrWnkyiyslg",
+];
+
+const parseYouTubeId = (url) => {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname.includes("youtu.be")) {
+      return parsed.pathname.replace("/", "");
+    }
+    if (parsed.searchParams.has("v")) {
+      return parsed.searchParams.get("v");
+    }
+  } catch (error) {
+    return null;
+  }
+  return null;
+};
+
+const initVideoFeed = () => {
+  const feed = document.getElementById("video-feed");
+  if (!feed) return;
+
+  const uniqueIds = [];
+  VIDEO_URLS.forEach((url) => {
+    const id = parseYouTubeId(url);
+    if (id && !uniqueIds.includes(id)) uniqueIds.push(id);
+  });
+
+  let openPreview = null;
+
+  const closePreview = () => {
+    if (!openPreview) return;
+    openPreview.innerHTML = "";
+    openPreview = null;
+  };
+
+  uniqueIds.forEach((id) => {
+    const card = document.createElement("div");
+    card.className = "video-card";
+
+    const thumb = document.createElement("div");
+    thumb.className = "video-thumb";
+    const img = document.createElement("img");
+    img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+    img.alt = "YouTube video thumbnail";
+    img.loading = "lazy";
+    thumb.appendChild(img);
+
+    const actions = document.createElement("div");
+    actions.className = "video-actions";
+
+    const previewButton = document.createElement("button");
+    previewButton.type = "button";
+    previewButton.textContent = "Preview";
+
+    const watchLink = document.createElement("a");
+    watchLink.href = `https://www.youtube.com/watch?v=${id}`;
+    watchLink.target = "_blank";
+    watchLink.rel = "noreferrer";
+    watchLink.textContent = "Watch on YouTube";
+
+    actions.appendChild(previewButton);
+    actions.appendChild(watchLink);
+
+    const preview = document.createElement("div");
+    preview.className = "video-preview";
+    preview.hidden = true;
+
+    previewButton.addEventListener("click", () => {
+      if (openPreview && openPreview !== preview) {
+        closePreview();
+      }
+
+      if (preview.hidden) {
+        preview.hidden = false;
+        preview.innerHTML = "";
+
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${id}?rel=0`;
+        iframe.title = "YouTube video preview";
+        iframe.loading = "lazy";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+
+        const closeBtn = document.createElement("button");
+        closeBtn.className = "video-close";
+        closeBtn.type = "button";
+        closeBtn.textContent = "X";
+        closeBtn.addEventListener("click", () => {
+          preview.hidden = true;
+          preview.innerHTML = "";
+          openPreview = null;
+        });
+
+        preview.appendChild(iframe);
+        preview.appendChild(closeBtn);
+        openPreview = preview;
+
+        const fallback = document.createElement("div");
+        fallback.className = "video-fallback";
+        fallback.textContent = "Preview unavailable. Use Watch on YouTube.";
+        const fallbackTimer = setTimeout(() => {
+          if (!iframe.contentWindow) {
+            preview.appendChild(fallback);
+          }
+        }, 2500);
+
+        iframe.addEventListener("load", () => {
+          clearTimeout(fallbackTimer);
+        });
+      } else {
+        preview.hidden = true;
+        preview.innerHTML = "";
+        openPreview = null;
+      }
+    });
+
+    card.appendChild(thumb);
+    card.appendChild(actions);
+    card.appendChild(preview);
+    feed.appendChild(card);
+  });
+};
+
 const initLightbox = (images) => {
   const lightbox = document.querySelector(".lightbox");
   const lightboxImage = document.querySelector(".lightbox-image");
@@ -263,7 +393,7 @@ const initLightbox = (images) => {
 
 const initPage = async () => {
   try {
-    await Promise.all([initHomeStream(), initGallery()]);
+    await Promise.all([initHomeStream(), initGallery(), initVideoFeed()]);
   } catch (error) {
     console.error(error);
   }
