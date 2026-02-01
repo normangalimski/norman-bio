@@ -180,9 +180,10 @@ ul {
 }
 
 .btn.primary {
-  background: var(--ink);
-  color: #fff;
-  box-shadow: var(--shadow);
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: none;
 }
 
 .btn.ghost {
