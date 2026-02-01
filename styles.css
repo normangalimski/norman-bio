@@ -85,7 +85,7 @@ ul {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(246, 242, 237, 0.9), rgba(246, 242, 237, 0.72) 40%, rgba(246, 242, 237, 0.96));
+  background: linear-gradient(180deg, rgba(246, 242, 237, 0.6), rgba(246, 242, 237, 0.4) 40%, rgba(246, 242, 237, 0.75));
   z-index: 0;
 }
 
