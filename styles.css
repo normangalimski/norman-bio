@@ -642,6 +642,11 @@ main {
 
   .nav-links {
     flex-wrap: wrap;
+    color: #0b0f16;
+    background: rgba(244, 244, 242, 0.9);
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .cta-row {
