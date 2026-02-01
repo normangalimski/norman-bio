@@ -330,6 +330,16 @@ main {
   display: block;
 }
 
+.gallery-feature .lightbox-trigger {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
 .gallery-grid {
   column-count: 3;
   column-gap: 18px;
