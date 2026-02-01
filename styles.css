@@ -328,18 +328,19 @@ main {
   overflow: hidden;
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
-  background: #f7f2ec;
+  background: transparent;
   transform: translateY(6px) scale(0.98);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: zoom-in;
 }
 
 .gallery-card img {
-  width: 100%;
+  width: auto;
   height: auto;
   display: block;
   max-height: 420px;
-  object-fit: contain;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .gallery-card:hover {
