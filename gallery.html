@@ -32,10 +32,9 @@
         <div class="logo">NG</div>
         <div class="nav-links">
           <a href="index.html">Home</a>
-          <a href="#portraits">Portraits</a>
-          <a href="#community">Community</a>
-          <a href="#documentary">Documentary</a>
-          <a href="#landscape">Landscape</a>
+          <a href="#gallery">Gallery</a>
+          <a href="index.html#articles">Articles</a>
+          <a href="index.html#contact">Contact</a>
         </div>
       </nav>
 
@@ -53,90 +52,42 @@
     </header>
 
     <main>
-      <section id="portraits" class="section gallery-section">
+      <section id="gallery" class="section gallery-section">
         <div class="section-header">
-          <p class="eyebrow">Theme</p>
-          <h2>Portraits</h2>
-          <p class="section-lead">Human-first portraits that highlight resilience and character.</p>
+          <p class="eyebrow">Gallery</p>
+          <h2>Selected Visuals</h2>
+          <p class="section-lead">A single, curated flow of images in their original aspect ratios.</p>
         </div>
         <div class="gallery-grid">
           <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-1.jpg" alt="Portrait photo 1" loading="lazy" />
+            <button class="lightbox-trigger" data-src="assets/photo-1.jpg" aria-label="Open image 1">
+              <img src="assets/photo-1.jpg" alt="Gallery image 1" loading="lazy" />
+            </button>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-2.jpg" alt="Portrait photo 2" loading="lazy" />
+            <button class="lightbox-trigger" data-src="assets/photo-2.jpg" aria-label="Open image 2">
+              <img src="assets/photo-2.jpg" alt="Gallery image 2" loading="lazy" />
+            </button>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-3.jpg" alt="Portrait photo 3" loading="lazy" />
+            <button class="lightbox-trigger" data-src="assets/photo-3.jpg" aria-label="Open image 3">
+              <img src="assets/photo-3.jpg" alt="Gallery image 3" loading="lazy" />
+            </button>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-4.jpg" alt="Portrait photo 4" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section id="community" class="section gallery-section">
-        <div class="section-header">
-          <p class="eyebrow">Theme</p>
-          <h2>Community</h2>
-          <p class="section-lead">Local stories, gatherings, and mentorship moments.</p>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-5.jpg" alt="Community photo 1" loading="lazy" />
+            <button class="lightbox-trigger" data-src="assets/photo-4.jpg" aria-label="Open image 4">
+              <img src="assets/photo-4.jpg" alt="Gallery image 4" loading="lazy" />
+            </button>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-6.jpg" alt="Community photo 2" loading="lazy" />
+            <button class="lightbox-trigger" data-src="assets/photo-5.jpg" aria-label="Open image 5">
+              <img src="assets/photo-5.jpg" alt="Gallery image 5" loading="lazy" />
+            </button>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-1.jpg" alt="Community photo 3" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-2.jpg" alt="Community photo 4" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section id="documentary" class="section gallery-section">
-        <div class="section-header">
-          <p class="eyebrow">Theme</p>
-          <h2>Documentary</h2>
-          <p class="section-lead">Behind-the-scenes visuals and documentary narratives.</p>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-3.jpg" alt="Documentary photo 1" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-4.jpg" alt="Documentary photo 2" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-5.jpg" alt="Documentary photo 3" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-6.jpg" alt="Documentary photo 4" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section id="landscape" class="section gallery-section">
-        <div class="section-header">
-          <p class="eyebrow">Theme</p>
-          <h2>Landscape</h2>
-          <p class="section-lead">Environment, place, and atmosphere from the coast.</p>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-2.jpg" alt="Landscape photo 1" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-3.jpg" alt="Landscape photo 2" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-4.jpg" alt="Landscape photo 3" loading="lazy" />
-          </figure>
-          <figure class="gallery-card" data-reveal>
-            <img src="assets/photo-5.jpg" alt="Landscape photo 4" loading="lazy" />
+            <button class="lightbox-trigger" data-src="assets/photo-6.jpg" aria-label="Open image 6">
+              <img src="assets/photo-6.jpg" alt="Gallery image 6" loading="lazy" />
+            </button>
           </figure>
         </div>
       </section>
@@ -158,6 +109,10 @@
       </div>
       <p class="footer-note">© 2026 Norman Galimski. Crafted with intention.</p>
     </footer>
+    <div class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Close image">×</button>
+      <img class="lightbox-image" alt="" />
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
