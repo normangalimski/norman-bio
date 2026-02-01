@@ -629,10 +629,11 @@ main {
 
   .cta-row {
     justify-content: center;
+    margin-top: 16px;
   }
 
   .hero-panels {
-    margin-top: 64px;
+    margin-top: 36px;
   }
 
   .journalism-item {
