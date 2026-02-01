@@ -308,45 +308,37 @@ main {
 }
 
 .gallery-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  grid-auto-rows: 180px;
+  column-count: 3;
+  column-gap: 18px;
 }
 
 .gallery-card {
+  margin: 0 0 18px;
+  break-inside: avoid;
   border-radius: 22px;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
-  min-height: 180px;
+  background: #f7f2ec;
+  transform: translateY(6px) scale(0.98);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: zoom-in;
 }
 
-.gallery-card.tall {
-  grid-row: span 2;
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.gallery-card.wide {
-  grid-column: span 2;
+.gallery-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 24px 50px rgba(30, 28, 25, 0.2);
 }
 
-.g1 { background-image: url("assets/photo-1.jpg"); }
-.g2 { background-image: url("assets/photo-2.jpg"); }
-.g3 { background-image: url("assets/photo-3.jpg"); }
-.g4 { background-image: url("assets/photo-4.jpg"); }
-.g5 { background-image: url("assets/photo-5.jpg"); }
-.g6 { background-image: url("assets/photo-6.jpg"); }
-.g7 { background-image: url("assets/photo-1.jpg"); }
-.g8 { background-image: url("assets/photo-2.jpg"); }
-.g9 { background-image: url("assets/photo-3.jpg"); }
-.g10 { background-image: url("assets/photo-4.jpg"); }
-.g11 { background-image: url("assets/photo-5.jpg"); }
-.g12 { background-image: url("assets/photo-6.jpg"); }
-.g13 { background-image: url("assets/photo-2.jpg"); }
-.g14 { background-image: url("assets/photo-3.jpg"); }
-.g15 { background-image: url("assets/photo-4.jpg"); }
-.g16 { background-image: url("assets/photo-5.jpg"); }
+.gallery-card.visible {
+  transform: translateY(0) scale(1);
+}
 
 .project-grid {
   display: grid;
@@ -482,6 +474,16 @@ main {
   transform: translateY(0);
 }
 
+.gallery-card[data-reveal] {
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+}
+
+.gallery-card[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 @media (max-width: 720px) {
   .page-montage {
     grid-template-columns: repeat(6, 1fr);
@@ -554,7 +556,11 @@ main {
     grid-column: span 1;
   }
 
-  .gallery-card.wide {
-    grid-column: span 1;
+  .gallery-grid {
+    column-count: 1;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-2px) scale(1.01);
   }
 }
