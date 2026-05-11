@@ -308,11 +308,14 @@ main {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   opacity: 0;
   animation: galleryFeatureIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.34s;
+  aspect-ratio: 16 / 5;
 }
 
 .gallery-feature img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
