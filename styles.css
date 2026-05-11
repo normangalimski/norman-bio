@@ -605,15 +605,47 @@ main {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Editorial media sections ───────────────────────────────────── */
+.editorial-media-section {
+  padding: 88px 8vw;
+}
+
+.editorial-section-header {
+  margin-bottom: 36px;
+}
+
+.editorial-heading {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 58px);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.editorial-descriptor {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.editorial-gallery-btn {
+  margin-top: 24px;
+}
+
 .stream-grid {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   margin-top: 28px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   scroll-snap-type: x proximity;
-  scrollbar-color: rgba(200, 163, 74, 0.6) transparent;
+  scrollbar-color: rgba(200, 163, 74, 0.45) transparent;
+  scrollbar-width: thin;
 }
 
 .stream-item {
@@ -623,8 +655,8 @@ main {
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
   flex: 0 0 auto;
-  width: 240px;
-  height: 180px;
+  width: 300px;
+  height: 210px;
   scroll-snap-align: start;
 }
 
@@ -653,20 +685,23 @@ main {
 }
 
 .video-feed {
-  margin-top: 22px;
+  margin-top: 28px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
+  scroll-snap-type: x proximity;
+  scrollbar-color: rgba(200, 163, 74, 0.45) transparent;
+  scrollbar-width: thin;
 }
 
 .video-feed-track {
   display: flex;
-  gap: 18px;
+  gap: 20px;
 }
 
 .video-card {
   flex: 0 0 auto;
-  width: 280px;
+  width: 300px;
   background: rgba(19, 24, 38, 0.9);
   border: 1px solid var(--stroke);
   border-radius: 18px;
@@ -674,6 +709,7 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
 }
 
 .video-thumb {
@@ -985,17 +1021,25 @@ main {
     margin-bottom: 16px;
   }
 
+  .editorial-media-section {
+    padding: 64px 6vw;
+  }
+
+  .editorial-heading {
+    font-size: clamp(32px, 8vw, 46px);
+  }
+
   .stream-grid {
-    gap: 12px;
+    gap: 14px;
   }
 
   .stream-item {
-    width: 200px;
-    height: 150px;
+    width: 230px;
+    height: 165px;
   }
 
   .video-card {
-    width: 220px;
+    width: 250px;
   }
 
 }

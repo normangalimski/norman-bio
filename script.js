@@ -389,9 +389,44 @@ const initLightbox = (images) => {
   });
 };
 
+const initEdgeScroll = (container) => {
+  let rafId = null;
+  const edgeWidth = 110;
+  const maxSpeed = 7;
+
+  const tick = (speed) => {
+    container.scrollLeft += speed;
+    rafId = requestAnimationFrame(() => tick(speed));
+  };
+
+  container.addEventListener("mousemove", (e) => {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const w = rect.width;
+    if (x < edgeWidth) {
+      const speed = -maxSpeed * (1 - x / edgeWidth);
+      rafId = requestAnimationFrame(() => tick(speed));
+    } else if (x > w - edgeWidth) {
+      const speed = maxSpeed * (1 - (w - x) / edgeWidth);
+      rafId = requestAnimationFrame(() => tick(speed));
+    }
+  });
+
+  container.addEventListener("mouseleave", () => {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  });
+};
+
 const initPage = async () => {
   try {
     await Promise.all([initHomeStream(), initGallery(), initVideoFeed()]);
+    const videoScroller = document.getElementById("video-scroller");
+    const photoScroller = document.getElementById("home-stream");
+    if (videoScroller) initEdgeScroll(videoScroller);
+    if (photoScroller) initEdgeScroll(photoScroller);
   } catch (error) {
     console.error(error);
   }
