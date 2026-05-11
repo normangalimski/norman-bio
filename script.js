@@ -49,7 +49,6 @@ const createStreamItem = (img) => {
 const createGalleryItem = (img) => {
   const figure = document.createElement("figure");
   figure.className = "gallery-card";
-  figure.setAttribute("data-reveal", "");
 
   const button = document.createElement("button");
   button.className = "lightbox-trigger";
@@ -134,13 +133,12 @@ const initGallery = async () => {
 
   featureButton.appendChild(featureImg);
   feature.appendChild(featureButton);
-  observeReveal(feature);
 
   grid.innerHTML = "";
-  images.slice(1).forEach((img) => {
+  images.slice(1).forEach((img, i) => {
     const item = createGalleryItem(img);
+    item.style.animationDelay = `${0.52 + i * 0.055}s`;
     grid.appendChild(item);
-    observeReveal(item);
   });
 
   initLightbox(images);
