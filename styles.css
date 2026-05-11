@@ -23,7 +23,11 @@ body {
 }
 
 .gallery-page {
-  background: radial-gradient(circle at 10% 20%, #141a2b 0%, #0b0f16 55%, #070a0f 100%);
+  background: #ffffff;
+  --ink: #111111;
+  --muted: #6b7280;
+  --stroke: rgba(0, 0, 0, 0.1);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .gallery-page .page-montage,
@@ -497,6 +501,11 @@ main {
   transform: translateY(0) scale(1);
 }
 
+.gallery-card.visible:hover {
+  transform: translateY(-5px) scale(1.025);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.15);
+}
+
 .stream-grid {
   display: flex;
   gap: 16px;
@@ -866,7 +875,8 @@ main {
     width: 220px;
   }
 
-  .gallery-card:hover {
+  .gallery-card.visible:hover {
     transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
   }
 }
